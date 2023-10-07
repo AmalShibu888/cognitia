@@ -5,7 +5,7 @@ const EventSchema = new Schema({
         type : String,
         required : true
     },
-    "bannerImages" : {
+    "bannerImage" : {
         type : String,
         required : true
     },
@@ -13,7 +13,7 @@ const EventSchema = new Schema({
         type : Array,
         required : true
     },
-    "ShortDescription" : {
+    "shortDescription" : {
         type : String,
         required : true
     },
@@ -64,4 +64,4 @@ const EventSchema = new Schema({
     }
 }, {timestamps :true})
 
-module.export = mongoose.model('event' , EventSchema);
+module.exports = mongoose.model('Event' , EventSchema);
