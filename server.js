@@ -12,6 +12,12 @@ mongoose.connect('mongodb+srv://codingclub:1234@cluster0.1aknvis.mongodb.net/?re
 })
 
 app.use(express.json());
+// app.use(express.static('public'));
+app.get('/' , (req,res)=>{
+    res.json({
+        "hi" : "hello"
+    })
+})
 app.post('/api/addData' , async (req,res) =>{
     // console.log(req.body);
     try{
