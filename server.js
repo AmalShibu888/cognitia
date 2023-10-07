@@ -1,4 +1,5 @@
 const express = require('express');
+const serverless = require('serverless-http');
 const mongoose = require('mongoose')
 
 const Event = require('./models/EventModel.js')
@@ -32,7 +33,7 @@ app.get('/api/getEvents' , async(req, res)=>{
     }
 })
 
-
+module.exports.handler = serverless(app);
 
 
 
