@@ -1,10 +1,9 @@
 const express = require('express');
-const serverless = require('serverless-http');
+// const serverless = require('serverless-http');
 const mongoose = require('mongoose')
 
-const Event = require('../models/EventModel.js')
+const Event = require('./models/EventModel.js')
 const app = express();
-
 mongoose.connect('mongodb+srv://codingclub:1234@cluster0.1aknvis.mongodb.net/?retryWrites=true&w=majority')
 .then((data) =>{
     app.listen(3000 , ()=>{
@@ -32,8 +31,9 @@ app.get('/api/getEvents' , async(req, res)=>{
         res.status(400).json({error : error.message})
     }
 })
-
-module.exports.handler = serverless(app);
+// app.use(`/.netlify/functions/api`, router);
+// module.exports = app;
+// module.exports.handler = serverless(app);
 
 
 
