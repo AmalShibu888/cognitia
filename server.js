@@ -153,7 +153,7 @@ app.get('/api/getCount' , async (req, res)=>{
             k++;
             
           }
-    } , 15000) 
+    } , 1800000) 
 
 })
 
