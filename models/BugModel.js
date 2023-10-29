@@ -10,14 +10,14 @@ const BugSchema = new mongoose.Schema({
         required : true
     },
     "email" : {
-        type : Array,
-        required : true
-    },
-    "description" : {
         type : String,
         required : true
     },
-    "image" : {
+    "file" : {
+        type : String,
+        required : true
+    },
+    "query" : {
         type : String,
         required : true
     }

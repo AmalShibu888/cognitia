@@ -168,6 +168,17 @@ app.get('/countto0', async (req, res) => {
     }
   });
   
+
+  app.post('/api/getBugs' , (req,res)=>{
+    console.log(req.body);
+    try{
+        const stat = Bug.create(req.body);
+        res.send(stat);
+    }catch{
+        res.status(400)
+    }
+    
+  })
   
 // app.use(`/.netlify/functions/api`, router);
 // module.exports = app;
