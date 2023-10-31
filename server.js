@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 const Bug = require('./models/BugModel')
 const {google} = require('googleapis')
 const Event = require('./models/EventModel.js')
+const cors = require('cors');
 const app = express();
+
 mongoose.connect('mongodb+srv://codingclub:1234@cluster0.1aknvis.mongodb.net/?retryWrites=true&w=majority')
 .then((data) =>{
     app.listen(3000 , ()=>{
@@ -13,6 +15,7 @@ mongoose.connect('mongodb+srv://codingclub:1234@cluster0.1aknvis.mongodb.net/?re
 })
 
 app.use(express.json());
+app.use(cors());
 // app.use(express.urlencoded());
 app.use(express.static('public'));
 app.get('/' , (req,res)=>{
@@ -174,8 +177,8 @@ app.get('/countto0', async (req, res) => {
     try{
         const stat = Bug.create(req.body);
         res.send(stat);
-    }catch{
-        res.status(400)
+    }catch(error){
+        res.status(400).send({error : error.message})
     }
     
   })
